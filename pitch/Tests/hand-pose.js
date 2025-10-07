@@ -5,8 +5,8 @@ let predictions = [];
 let midiOutput;
 let activeNotes = {};
 
-const baseNotes = [60, 62, 64, 65, 67]; // Thumb → Pinky
-const pitchBendRange = 8192; // half of 16383
+const baseNotes = [60, 62, 64, 65, 67]; 
+const pitchBendRange = 8192; 
 const maxBend = 8192;
 
 function setup() {
@@ -15,12 +15,12 @@ function setup() {
   video.size(width, height);
   video.hide();
 
-  handpose = ml5.handpose(video, () => console.log("✅ Handpose model ready!"));
+  handpose = ml5.handpose(video, () => console.log("Handpose model ready!"));
   handpose.on("predict", results => {
     predictions = results;
   });
 
-  // WebMIDI
+
   if (navigator.requestMIDIAccess) {
     navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
   } else {
@@ -59,31 +59,28 @@ function onMIDIFailure() {
   console.log("Could not access MIDI devices.");
 }
 
-// Send MIDI notes and pitch bend
 function sendMIDINotes() {
   if (!predictions.length || !midiOutput) return;
 
   const hand = predictions[0];
   const landmarks = hand.landmarks;
 
-  // wrist = landmark 0
   const [wristX, wristY] = landmarks[0];
 
-  // Pitch bend
+
   let bendValue = map(wristX, 0, width, -maxBend, maxBend);
   let bend = Math.floor(constrain(8192 + bendValue, 0, 16383));
   sendPitchBend(bend);
 
-  // Velocity (up = louder)
+
   let velocity = Math.floor(map(wristY, height, 0, 40, 127));
 
-  // Fingertips: [thumb=4, index=8, middle=12, ring=16, pinky=20]
   const tipIndices = [4, 8, 12, 16, 20];
   tipIndices.forEach((idx, i) => {
     const [x, y] = landmarks[idx];
     const note = baseNotes[i];
 
-    // simple threshold: if fingertip visible
+
     if (y >= 0) {
       if (!activeNotes[note]) {
         midiOutput.send([0x90, note, velocity]); // Note ON
