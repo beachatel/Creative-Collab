@@ -1,13 +1,12 @@
 function setup(){
-WebMidi.enable(function(err) { //check if WebMidi.js is enabled
+WebMidi.enable(function(err) { 
   if (err) {
-    console.log("WebMidi could not be enabled.", err);
+    console.log("WebMidi could not be enabled.", err); // catch error for web midi fail
   } else {
     console.log("WebMidi enabled!");
   }
 });
 
-//name our visible MIDI input and output ports
 console.log("---");
 console.log("Inputs Ports: ");
 for (i = 0; i < WebMidi.inputs.length; i++) {
