@@ -4,15 +4,19 @@ let midiOutput;
 let chordNotes = [60, 64, 67]; // c major
 let activeNotes = {};
 let connections; 
+let crowdVideo;
 
 function preload() {
   bodyPose = ml5.bodyPose('MoveNet');
+    video = createVideo("video/crowdVideo.mp4")
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  video = createCapture(VIDEO);
+
+  // video = createCapture(VIDEO);
   video.size(width, height);
+  video.loop();
   video.hide();
 
   bodyPose.ready.then(() => {
