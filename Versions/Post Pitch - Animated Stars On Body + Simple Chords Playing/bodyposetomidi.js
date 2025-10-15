@@ -1,4 +1,6 @@
 let video;
+let starvideo;
+let star;
 let bodyPose;
 let midiOutput;
 let chordNotes = [60, 64, 67]; // c major
@@ -6,18 +8,44 @@ let activeNotes = {};
 let connections; 
 let crowdVideo;
 
+
+
+var gif_loadImg, gif_createImg;
+
+
 function preload() {
   bodyPose = ml5.bodyPose('MoveNet');
-    video = createVideo("video/crowdVideo.mp4")
+    // video = createVideo("video/crowdVideo.mp4")
+    // star = createVideo("video/star.gif")
+
+    gif_loadImg = loadImage("video/star.gif");
+    gif_createImg = createImg("video/star.gif");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  // video = createCapture(VIDEO);
-  video.size(width, height);
-  video.loop();
+
+  // starvideo.play();
+  // starvideo.loop();
+  // starvideo.hide();
+
+  // star.autoplay();
+  // star.loop();
+  // star.hide();
+  // starvideo.size(100,100);
+
+  video = createCapture(VIDEO);
   video.hide();
+
+  gif_createImg.hide();
+
+  imageMode(CENTER);
+
+  // // testing for old crowd video
+  // video.size(width, height);
+  // video.loop();
+  // video.hide();
 
   bodyPose.ready.then(() => {
     bodyPose.detectStart(video, (results) => poses = results);
@@ -33,7 +61,7 @@ let poses = [];
 
 function draw() {
   background(0);
-  image(video, 0, 0, width, height);
+  // image(video, 0, 0, width, height);
 
   if (poses.length) drawSkeleton();
   if (!poses.length || !midiOutput) return;
@@ -65,7 +93,7 @@ function draw() {
 }
 
 
-// for visual guide + debugging 
+// for visual guide + debug
 
 function drawSkeleton() {
   let pose = poses[0];
@@ -75,7 +103,7 @@ function drawSkeleton() {
     let pa = pose.keypoints[a];
     let pb = pose.keypoints[b];
     if (pa.confidence > 0.1 && pb.confidence > 0.1) {
-      line(pa.x, pa.y, pb.x, pb.y);
+      // line(pa.x, pa.y, pb.x, pb.y);
     }
   }
 
@@ -83,7 +111,10 @@ function drawSkeleton() {
     if (k.confidence > 0.1) {
       fill(0, 0, 255);
       noStroke();
-      circle(k.x, k.y, 14);
+      // circle(k.x, k.y, 14);
+    //  image(star,k.x,k.y,100,100);
+       image(gif_loadImg, k.x, k.y,100,100);
+       gif_createImg.position(k.x, k.y,100,100);
     }
   }
 }
