@@ -1,0 +1,6 @@
+
+Version Documentation
+
+V1 - Post Pitch - Animated Stars On Body + Simple Chords Playing
+V1.1 - Focusing on Improving Sound - Cropping GIF correctly
+V1.2 - 
