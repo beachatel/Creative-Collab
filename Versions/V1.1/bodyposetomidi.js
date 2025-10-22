@@ -97,13 +97,13 @@ function draw() {
 
 function drawSkeleton() {
   let pose = poses[0];
-  stroke(255,0,0);
-  strokeWeight(5);
+  stroke(255);
+  strokeWeight(1);
   for (let [a, b] of connections) {
     let pa = pose.keypoints[a];
     let pb = pose.keypoints[b];
     if (pa.confidence > 0.1 && pb.confidence > 0.1) {
-      // line(pa.x, pa.y, pb.x, pb.y);
+      line(pa.x, pa.y, pb.x, pb.y);
     }
   }
 
@@ -113,8 +113,9 @@ function drawSkeleton() {
       noStroke();
       // circle(k.x, k.y, 14);
     //  image(star,k.x,k.y,100,100);
-       image(gif_loadImg, k.x, k.y,100,100);
-       gif_createImg.position(k.x, k.y,100,100);
+    
+       image(gif_loadImg, k.x, k.y,50,50);
+       gif_createImg.position(k.x, k.y,50,50);
     }
   }
 }
