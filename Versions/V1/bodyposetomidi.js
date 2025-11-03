@@ -52,7 +52,9 @@ function setup() {
     connections = bodyPose.getSkeleton();
   });
 
-  if (navigator.requestMIDIAccess) {
+
+
+  if (navigator.requestMIDIAccess()) {
     navigator.requestMIDIAccess().then(midi => midiOutput = Array.from(midi.outputs.values())[0]);
   }
 }

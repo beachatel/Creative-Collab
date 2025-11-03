@@ -1,6 +1,7 @@
 
 Version Documentation
 
-V1 - Post Pitch - Animated Stars On Body + Simple Chords Playing
-V1.1 - Focusing on Improving Sound - Cropping GIF correctly
-V1.2 - 
+V1 - Solo Animated Star GIF On Body + Simple Chords Playing
+V1.1 - Solo Body Detection (No Background)
+V1.2 - Multiple Body Detection + Background
+V1.3 - Multiple Body Detection + Dynamic Background + Working MIDI Out
