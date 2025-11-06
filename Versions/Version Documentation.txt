@@ -5,3 +5,8 @@ V1 - Solo Animated Star GIF On Body + Simple Chords Playing
 V1.1 - Solo Body Detection (No Background)
 V1.2 - Multiple Body Detection + Background
 V1.3 - Multiple Body Detection + Dynamic Background + Working MIDI Out
+V1.4 - Multiple Body Detection + Dynamic Background + Working MIDI Out for Multiple Bodies
+V1.5 - 
+
+
+V2 - Working Version for Concept Milestone
