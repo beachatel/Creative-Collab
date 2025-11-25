@@ -26,6 +26,8 @@ let starPositions = [];
 function preload() {
   bodyPose = ml5.bodyPose({ flipped: true });
 
+  video = createVideo("video/video.mp4")
+
   gif_loadImg = loadImage("video/star.gif");
   gif_createImg = createImg("video/star.gif");
   
@@ -38,6 +40,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
+ 
 
   gif_createImg.hide();
 
@@ -49,7 +52,9 @@ function setup() {
   }
 
   // Set up video capture
-  video = createCapture(VIDEO);
+  // video = createCapture(VIDEO);
+  video.play();
+  video.loop();
   video.size(width, height);
   video.hide();
 
@@ -193,9 +198,9 @@ function drawSkeleton() {
     for (let k of pose.keypoints) {
       if (k.confidence > 0.1) {
         push();
-        translate(35,35);
+  
     
-        image(starPositions[counter % starPositions.length], k.x, k.y, 100, 100); 
+        image(starPositions[counter % starPositions.length], k.x, k.y, 30, 30); 
         pop();
         counter++;    
       }

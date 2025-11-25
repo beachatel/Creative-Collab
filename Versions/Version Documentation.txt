@@ -2,11 +2,18 @@
 Version Documentation
 
 V1 - Solo Animated Star GIF On Body + Simple Chords Playing
+
 V1.1 - Solo Body Detection (No Background)
+
 V1.2 - Multiple Body Detection + Background
+
 V1.3 - Multiple Body Detection + Dynamic Background + Working MIDI Out
-V1.4 - Multiple Body Detection + Dynamic Background + Working MIDI Out for Multiple Bodies
-V1.5 - 
+
+V1.4 - Multiple Body Detection + Dynamic Background + Working MIDI Out for Multiple Bodies + Dynamic Stars on Each Key point + Debugging/Labelling for each person
+
+V1.5 - Removed Lines + Better Visual Design + Focusing on improving and creating more complex sounds sent based on keypoints
 
 
-V2 - Working Version for Concept Milestone
+
+
+V2 - Version Ready for Milestone Checkup on the 19th November
