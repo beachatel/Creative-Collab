@@ -26,7 +26,7 @@ let starPositions = [];
 function preload() {
   bodyPose = ml5.bodyPose({ flipped: true });
 
-  video = createVideo("video/video.mp4")
+  video = createVideo("video/people.mp4")
 
   gif_loadImg = loadImage("video/star.gif");
   gif_createImg = createImg("video/star.gif");
@@ -52,11 +52,16 @@ function setup() {
   }
 
   // Set up video capture
+
+  // with live video 
   // video = createCapture(VIDEO);
+
+  // with pre video 
   video.play();
   video.loop();
   video.size(width, height);
   video.hide();
+  video.volume(0);
 
   // Start body pose detection
   bodyPose.ready.then(() => {

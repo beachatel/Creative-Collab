@@ -13,7 +13,7 @@ V1.4 - Multiple Body Detection + Dynamic Background + Working MIDI Out for Multi
 
 V1.5 - Removed Lines + Better Visual Design + Focusing on improving and creating more complex sounds sent based on keypoints
 
+V1.6 - Removed Lines + More stars between keypoints + Added rotation and size variation to individual stars
 
 
 
-V2 - Version Ready for Milestone Checkup on the 19th November
