@@ -51,7 +51,7 @@ let shootStarPos = [];
 function preload() {
   bodyPose = ml5.bodyPose({ flipped: true });
 
-  // video = createVideo("video/people.mp4")
+  video = createVideo("video/people.mp4")
 
   //gif_loadImg = loadImage("video/star.gif");
   //gif_createImg = createImg("video/star.gif");
@@ -83,11 +83,11 @@ function setup() {
   // Set up video capture
 
   // For live video capture:
-  video = createCapture(VIDEO);
+  // video = createCapture(VIDEO);
 
   // with pre video
-  // video.play();
-  // video.loop();
+  video.play();
+  video.loop();
   video.size(width, height);
   video.hide();
   video.volume(0);
@@ -100,7 +100,7 @@ function setup() {
 
   if (navigator.requestMIDIAccess) {
     navigator.requestMIDIAccess().then((midi) => {
-      const TARGET_PORT_NAME = "loopMIDI Port";
+      const TARGET_PORT_NAME = "IAC Driver Bus 1";
 
       let outputs = Array.from(midi.outputs.values());
 
