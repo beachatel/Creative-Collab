@@ -15,6 +15,6 @@ V1.5 - Removed Lines + Better Visual Design + Focusing on improving and creating
 
 V1.6 - Removed Lines + More stars between keypoints + Added rotation and size variation to individual stars
 
-V1.7 - Fliss added shooting stars and Ankle chords sent as MIDI out
+V1.7 - Fliss added shooting stars and Ankle chords sent as MIDI out + ml5.js imported locally > everything running on github pages
 
 
