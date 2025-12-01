@@ -1,3 +1,5 @@
+// import {OutputChannel} from "../node_modules/webmidi"
+
 let video;
 
 let rotationAngle = 0;
@@ -11,6 +13,8 @@ let bodyPose;
 let midiOutput;
 let chordNotes = [52, 56, 60, 64, 67, 71];
 let activeNotes = {};
+
+// let channel1 = new OutputChannel(1,1)
 
 let poses = [];
 let xArray = [];
@@ -39,10 +43,12 @@ let starSize = [];
 let starRotation = [];
 
 let chordSets = [
+  [30, 54, 57],
   [60, 63, 67],
   [60, 64, 67],
   [60, 64, 70],
   [62, 65, 69],
+  [72, 75, 100]
 ];
 
 let shootingStar;
@@ -52,10 +58,10 @@ function preload() {
 bodyPose = ml5.bodyPose({ 
     flipped: true
   //  , modelUrl: "http://127.0.0.1:8000/posenet2/MOBILENETV1_050_quant1_stride16/model-stride16.json",
-  //  outputStride: 16 
+  //  outputStride: 16 §
   });
 
-  video = createVideo("video/people.mp4")
+  // video = createVideo("video/people.mp4")
 
   //gif_loadImg = loadImage("video/star.gif");
   //gif_createImg = createImg("video/star.gif");
@@ -87,11 +93,11 @@ function setup() {
   // Set up video capture
 
   // For live video capture:
-  // video = createCapture(VIDEO);
+  video = createCapture(VIDEO);
 
   // with pre video
-  video.play();
-  video.loop();
+  // video.play();
+  // video.loop();
   video.size(width, height);
   video.hide();
   video.volume(0);
@@ -189,6 +195,11 @@ function draw() {
 
       let bend = map(avgY, height, 0, 0, 16383);
       midiOutput.send([0xe0, bend & 0x7f, (bend >> 7) & 0x7f]);
+      
+      // if(i === 1)
+      // channel1.playNote([0xe0, bend & 0x7f, (bend >> 7) & 0x7f])
+      // else 
+      //   channel2.playNote([0xe0, bend & 0x7f, (bend >> 7) & 0x7f])
 
       let ccVal = constrain(
         map(dist(lw.x, lw.y, rw.x, rw.y), 0, width / 2, 0, 127),
@@ -298,4 +309,11 @@ function drawSkeleton() {
 function gotPoses(results) {
   poses = results;
   // console.log(results);
+}
+
+function keyPressed() {
+  if (key === '§') {
+    let fs = fullscreen();
+    fullscreen(!fs);
+  }
 }
