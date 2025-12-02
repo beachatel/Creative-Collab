@@ -11,7 +11,7 @@ let timer = 0;
 const shootstarInterval = 5000;
 let bodyPose;
 let midiOutput;
-let chordNotes = [52, 56, 60, 64, 67, 71];
+let chordNotes = [52, 56, 60, 64, 67, 71]; 
 let activeNotes = {};
 
 // let channel1 = new OutputChannel(1,1)
