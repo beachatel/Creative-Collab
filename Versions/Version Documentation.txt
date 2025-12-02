@@ -17,6 +17,6 @@ V1.6 - Removed Lines + More stars between keypoints + Added rotation and size va
 
 V1.7 - Fliss added shooting stars and Ankle chords sent as MIDI out
 
-V.2 (Final Version) - Clean, organised and commented code. Running on GitHub pages for easier plug and play.
+V.2 (Final Version) - Clean, organised and commented code + Harmonic chords on ankle x
 
 
